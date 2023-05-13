@@ -8,6 +8,18 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function  login(Request $request){
+        $incomingData = $request->validate([
+            'loginname'=> 'required',
+            'loginpassword'=>'required'
+        ]);
+
+        if(auth()->attempt(['name'=>$incomingData['loginname'], 'password'=> $incomingData['loginpassword']])){
+            $request->session()->regenerate();
+        }
+        return redirect('/');
+    }
+
     public function  logout(){
         auth()->logout();
         return redirect('/');

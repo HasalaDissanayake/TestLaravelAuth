@@ -22,7 +22,16 @@
             <input type="text" name="name" placeholder="name">
             <input type="text" name="email" placeholder="email">
             <input type="password" name="password" placeholder="password">
-            <button>Submit</button>
+            <button>Register</button>
+        </form>
+    </div>
+    <div style="border: 1px solid black; padding: 2rem">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            @csrf
+            <input type="text" name="loginname" placeholder="name">
+            <input type="password" name="loginpassword" placeholder="password">
+            <button>Login</button>
         </form>
     </div>
     @endauth
