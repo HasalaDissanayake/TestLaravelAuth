@@ -19,4 +19,8 @@ class PostController extends Controller
         Post::create($incomingData);
         return redirect('/');
     }
+
+    public  function  showEditView(Post $post){
+        return view('edit-post',['post'=>$post]);
+    }
 }
