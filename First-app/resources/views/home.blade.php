@@ -24,6 +24,23 @@
                 <button>Save Post</button>
             </form>
         </div>
+        <div style="border: 1px solid black; padding: 2rem">
+            <h2>All Posts</h2>
+            <div style="display: flex; flex-direction: column; gap: 2rem">
+            @foreach($posts as $post)
+                <div style="border:1px solid grey;">
+                    <h3>{{$post['title']}}</h3>
+                    <p>{{$post['body']}}</p>
+                    <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
+                    <form action="/delete-post/{{$post->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button>DELETE</button>
+                    </form>
+                </div>
+            @endforeach
+            </div>
+        </div>
     @else
     <div style="border: 1px solid black; padding: 2rem">
         <h2>Register</h2>
