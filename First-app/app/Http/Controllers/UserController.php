@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function register(Request $request) {
         $incomingData = $request->validate([
-            'name' => ['required', 'min:3', 'max:10', Rule::unique('users','name')],
+            'name' => ['required', 'min:3', 'max:100', Rule::unique('users','name')],
             'email' => ['required','email', Rule::unique('users','email')],
             'password' => ['required','min:8','max:15']
         ]);
