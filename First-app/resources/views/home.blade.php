@@ -29,7 +29,7 @@
             <div style="display: flex; flex-direction: column; gap: 2rem">
             @foreach($posts as $post)
                 <div style="border:1px solid grey;">
-                    <h3>{{$post['title']}}</h3>
+                    <h3>{{$post['title']}} by {{$post['user_id']}}</h3>
                     <p>{{$post['body']}}</p>
                     <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
                     <form action="/delete-post/{{$post->id}}" method="post">
